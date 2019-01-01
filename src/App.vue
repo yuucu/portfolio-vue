@@ -1,12 +1,36 @@
 <template>
   <div id="app">
+
+    <my-navbar></my-navbar>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">HOME</router-link> |
+      <router-link to="/works">WORKS</router-link> |
+      <router-link to="/about">ABOUT</router-link> |
+      <router-link to="/system">SYSTEM</router-link>
     </div>
-    <router-view/>
+
+    <section>
+      <div class="container">
+        <router-view/>
+      </div>
+    </section>
+
+    <my-footer></my-footer>
   </div>
 </template>
+
+<script>
+import myFooter from '@/components/myFooter.vue'
+import myNavbar from '@/components/myNavbar.vue'
+
+export default {
+  name: 'app',
+  components: {
+    myFooter,
+    myNavbar,
+  }
+}
+</script>
 
 <style lang="scss">
 #app {

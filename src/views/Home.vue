@@ -1,8 +1,8 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  .home
+    p サイト更新中...
+    p 前サイト
+    a( href="https://satokibi.github.io/2/" ) https://satokibi.github.io/2/
 </template>
 
 <script>
