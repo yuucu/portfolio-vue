@@ -61,7 +61,7 @@
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .prof-line {
   margin: 0;

@@ -67,7 +67,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
 .me-mail {
   border: 1px solid #ddd;
