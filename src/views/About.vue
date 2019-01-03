@@ -2,12 +2,12 @@
 
 .about
   .columns.is-centered
-    .column.is-4.is-8-mobile.is-offset-2-mobile
+    .column.is-4.is-10-mobile.is-offset-1-mobile
 
       profile
       me
 
-    .column.is-4.is-8-mobile.is-offset-2-mobile
+    .column.is-4.is-10-mobile.is-offset-1-mobile
       skillset
 
 </template>

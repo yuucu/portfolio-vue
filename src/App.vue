@@ -11,7 +11,9 @@
 
     <section>
       <div class="container">
-        <router-view/>
+        <transition name="fade" mode="out-in">
+          <router-view/>
+        </transition>
       </div>
     </section>
 
@@ -49,5 +51,13 @@ export default {
       color: #42b983;
     }
   }
+}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave {
+  opacity: 0
 }
 </style>

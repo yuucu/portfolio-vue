@@ -12,7 +12,7 @@
           p.is-inline HTML
         div.skills
           p.is-inline-block <span><img v-bind:src="get_img('pug.png')"></span> pug
-          p.is-inline-block <span><img v-bind:src="get_img('emmet.svg')"></span> emmet
+          p.is-inline-block <span><img src="../../assets/emmet.svg"></span> emmet
 
       div.has-text-centered.skill-content
         div.skill-title.is-inline-block

@@ -6,7 +6,7 @@
           p.card-header-title.has-text-light Me
         .card-content
 
-          .has-background-white.me-btn.me-mail
+          .has-background-white.me-btn.me-mail( v-on:click="mail_show = !mail_show" )
             .level.is-mobile
               .level-left
                 span.icon.has-text-dark
@@ -15,10 +15,14 @@
               .level-right
                 .
                   <span class="icon">
-                    <i class="fas fa-xs fa-external-link-alt"></i>
+                    <i class="fas fa-angle-double-down"></i>
                   </span>
 
-          .me-btn.me-github
+          transition( name="slide-fade" )
+            p.mail-td( v-if="mail_show" ) td182007@cis.fukuoka-u.ac.jp
+
+
+          .me-btn.me-github( v-on:click="open_github" )
             .level.is-mobile
               .level-left
                 span.icon.has-text-light
@@ -30,7 +34,7 @@
                     <i class="fas fa-xs fa-external-link-alt"></i>
                   </span>
 
-          .me-btn.me-qiita
+          .me-btn.me-qiita( v-on:click="open_qiita" )
             .level.is-mobile
               .level-left
                 .
@@ -46,29 +50,79 @@
                   </span>
 </template>
 
+<script>
+export default {
+  data: function() {
+    return {
+      mail_show: false
+    }
+  },
+  methods: {
+    open_github: function() {
+      window.open( 'https://github.com/satokibi', '_blank' );
+    },
+    open_qiita: function() {
+      window.open( 'https://qiita.com/satokibi', '_blank' );
+    },
+  }
+}
+</script>
 <style lang="scss">
 
-  .me-mail {
-    border: 1px solid #ddd;
+.me-mail {
+  border: 1px solid #ddd;
+}
+
+.me-github {
+  background-color: #24292f;
+}
+
+.me-qiita {
+  background-color: #55c501;
+  .qiita-icon {
+    margin: -4px;
+  }
+}
+
+.me-btn {
+  padding: 8px 16px;
+  margin-bottom: 8px;
+
+  .me-title {
+    margin-left: 16px;
   }
 
-  .me-github {
-    background-color: #24292f;
+
+  cursor: pointer;
+
+  $time: 0.3s;
+  /*-webkit-transition: $time;
+  -moz-transition: $time;
+  -o-transition: $time;
+  -ms-transition: $time;*/
+  transition: $time;
+
+  &:hover {
+    opacity: 0.5;
   }
 
-  .me-qiita {
-    background-color: #55c501;
-    .qiita-icon {
-      margin: -4px;
-    }
-  }
+}
 
-  .me-btn {
-    padding: 8px 16px;
-    margin-bottom: 8px;
+.mail-td {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
 
-    .me-title {
-      margin-left: 16px;
-    }
-  }
+/* enter、 leave アニメーションで異なる間隔やタイミング関数を利用することができます */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .6s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-10px);
+  opacity: 0;
+}
 </style>
