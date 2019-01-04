@@ -14,22 +14,23 @@
         .media-content
           p.title.is-4 
             | <span class="underline">Games</span>
-            |<br><a href="https://unityroom.com/users/satokibi" target="_blank">UnityRoom</a>
+            | <br><a href="https://unityroom.com/users/satokibi" target="_blank">UnityRoom</a>
       .content.has-text-left 
         p.
           <span class="tag is-dark">Unity</span>
           <span class="tag is-light">C#</span>
         p Unityで作成したゲームです。
-        p Windowsでのみ動作します。(Macではフォントが崩れます)
+          |<br> Google Chorome推奨。
         p 作るのが好きなため大きなライブラリなどは使わずに
           | できるだけ自分のコードで実装しながら制作しています。
-        p キャラやアイテムの制作には<a href="https://ephtracy.github.io" target="_blank">MagicaVoxel</a>や
+        p キャラやアイテムの作成には<a href="https://ephtracy.github.io" target="_blank">MagicaVoxel</a>や
           | <a href="https://www.blender.org" target="_blank">blendar</a>を使用しています。
         footer.card-footer
           time( datetime="2016") 2016年6月 ~ 2018年1月
 
 
 </template>
+
 
 <style lang="scss" scoped>
 

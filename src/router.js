@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Works from './views/Works.vue'
 import System from './views/System.vue'
 import About from './views/About.vue'
+import Test from './views/Test.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/system',
       name: 'system',
       component: System
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: Test
     }
   ]
 })
