@@ -1,7 +1,8 @@
 <template>
   <div id="app">
 
-    <my-navbar></my-navbar>
+    <my-navbar v-on:show-menu="showMenu"></my-navbar>
+
     <div id="nav">
       <router-link to="/">HOME</router-link> |
       <router-link to="/works">WORKS</router-link> |
@@ -9,27 +10,30 @@
       <router-link to="/system">SYSTEM</router-link>
     </div>
 
-    <section>
-      <div class="container">
-        <transition name="fade" mode="out-in">
-          <router-view/>
-        </transition>
-      </div>
-    </section>
+    <div class="container">
+      <transition name="fade" mode="out-in">
+        <router-view/>
+      </transition>
+    </div>
 
     <my-footer></my-footer>
   </div>
 </template>
 
 <script>
-import myFooter from '@/components/myFooter.vue'
-import myNavbar from '@/components/myNavbar.vue'
+import myFooter from '@/components/App/myFooter.vue'
+import myNavbar from '@/components/App/myNavbar.vue'
 
 export default {
   name: 'app',
   components: {
     myFooter,
     myNavbar,
+  },
+  methods: {
+    showMenu: function() {
+      console.log("test");
+    }
   }
 }
 </script>
@@ -53,11 +57,18 @@ export default {
   }
 }
 
-
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .6s
 }
 .fade-enter, .fade-leave {
   opacity: 0
+}
+
+
+.container {
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.contents.hidden {
+	transform: translateX(250px);
 }
 </style>

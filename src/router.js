@@ -30,6 +30,6 @@ export default new Router({
       path: '/system',
       name: 'system',
       component: System
-    }
+    },
   ]
 })
