@@ -14,8 +14,8 @@
       .content.has-text-left
         p.
           <span class="tag is-dark">FL studio</span>
-        p ピコピコした音楽が好きでチップチューンのような音楽を作曲していました。
-          | <br> 名前のリンクから他の曲も聞けるので是非！
+        p チップチューンカバーしたり、remixしたりしていました。
+          // | <br> ピコピコした音楽が好きです。
         footer.card-footer
           time( datetime="2014") 2014~2015年
     .card-image.column.is-3by5
