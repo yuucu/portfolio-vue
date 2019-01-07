@@ -1,70 +1,77 @@
 <template>
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-      </a>
-
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <div class="navbar-brand mobile-menu-btn">
+      <a v-on:click="showMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-open" aria-label="menu" aria-expanded="false" data-target="target-menu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
-
-      <div class="menu-trigger-wrapper">
-        <a class="menu-trigger" v-bind:class="{ active: isActive }" v-on:click="showMenu" href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </div>
-      
     </div>
 
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-menu desktop-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
-          Home
-        </a>
-
-        <a class="navbar-item">
-          Works
-        </a>
-
-        <a class="navbar-item">
-          About
-        </a>
-
-        <a class="navbar-item">
-          System
-        </a>
+      </div>
+      <div class="navbar-end">
+        <router-link to="/">
+          <a class="navbar-item">
+            Home
+          </a>
+        </router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
+
+          <router-link to="/works">
+              <a class="navbar-link">
+                Works
+              </a>
+          </router-link>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
+            <router-link to="/works">
+                <a class="navbar-item">
+                  Top
+                </a>
+            </router-link>
             <hr class="navbar-divider">
             <a class="navbar-item">
-              Report an issue
+              Programming
+            </a>
+            <a class="navbar-item">
+              Games
+            </a>
+            <a class="navbar-item">
+              Songs
             </a>
           </div>
         </div>
+
+        <router-link to="/about">
+          <a class="navbar-item">
+            About
+          </a>
+        </router-link>
+
+        <router-link to="/system">
+          <a class="navbar-item">
+            System
+          </a>
+        </router-link>
+
+
+        </div>
       </div>
 
-    </div>
+      <div class="mobile-menu" v-bind:class="{ active: isActive }">
+          <a v-on:click="showMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-close" aria-label="menu" aria-expanded="false" data-target="target-menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+
   </nav>
 </template>
 
@@ -76,6 +83,7 @@ export default {
   },
   data: function() {
     return {
+      // 親と共通に
       isActive: false,
     }
   },
@@ -89,50 +97,37 @@ export default {
 </script>
 
 
-<style class="scss">
+<style lang="scss" scoped>
 
-.menu-trigger-wrapper {
-  padding: 16px;
-}
-.menu-trigger,
-.menu-trigger span {
-  display: inline-block;
-  transition: all .4s;
-  box-sizing: border-box;
-}
-.menu-trigger {
-  position: relative;
-  width: 24px;
-  height: 18px;
-}
-.menu-trigger span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #444;
-  border-radius: 4px;
-}
-.menu-trigger span:nth-of-type(1) {
-  top: 0;
-}
-.menu-trigger span:nth-of-type(2) {
-  top: 8px;
-}
-.menu-trigger span:nth-of-type(3) {
-  bottom: 0;
+.mobile-menu-btn {
+  padding-top: 8px;
+  padding-right: 4%;
 }
 
-.menu-trigger.active span:nth-of-type(1) {
-  -webkit-transform: translateY(8px) rotate(-45deg);
-  transform: translateY(8px) rotate(-45deg);
-}
-.menu-trigger.active span:nth-of-type(2) {
-  opacity: 0;
-}
-.menu-trigger.active span:nth-of-type(3) {
-  -webkit-transform: translateY(-8px) rotate(45deg);
-  transform: translateY(-8px) rotate(45deg);
+.desktop-menu {
+  padding-top: 40px;
+  padding-right: 10%;
 }
 
+$menu_time: .4s;
+.mobile-menu {
+	z-index: 1;
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	right: 0;
+	width: 320px;
+	height: 100%;
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.6);
+	transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	transition: transform $menu_time; 
+}
+.mobile-menu.active {
+	transform: none;
+	-webkit-transform: none;
+}
 </style>

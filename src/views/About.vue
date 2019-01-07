@@ -1,9 +1,9 @@
 <template lang="pug">
 
 .about
+  h2.page-title About
   .columns.is-centered
     .column.is-4.is-10-mobile.is-offset-1-mobile
-
       profile
       me
 
@@ -28,9 +28,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-* {
-  // border: 1px solid #ccc;
-}
 
 .card {
   margin-top: 24px;

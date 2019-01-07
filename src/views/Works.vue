@@ -1,6 +1,8 @@
 <template lang="pug">
   .works
-    .columns
+    .columns.is-multiline
+      .column.is-12
+        h2.page-title Works
       .column.is-10-mobile.is-offset-1-mobile.is-10-tablet.is-offset-1-tablet
         .work
           top-prog
