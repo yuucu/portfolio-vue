@@ -2,7 +2,7 @@
   <div id="app">
     <div class="close-bg" v-bind:class="{ active: isActive }"></div>
 
-    <my-navbar v-on:show-menu="showMenu"></my-navbar>
+    <my-navbar v-bind:isActive="isActive" v-on:show-menu="showMenu"></my-navbar>
 
     <div class="container" v-bind:class="{ hidden: isActive }">
       <transition name="fade" mode="out-in">
@@ -92,9 +92,7 @@ $link-focus-border: $primary;
   opacity: 0
 }
 
-// menu_triggerでも使用
 $menu_time: .4s;
-
 // menu
 .container {
 	transition: transform $menu_time;
@@ -104,7 +102,6 @@ $menu_time: .4s;
 	-webkit-transform: translateX(-320px);
 }
 
-@import "@/components/App/menu_trigger.scss";
 
 .close-bg {
 	z-index: 50;

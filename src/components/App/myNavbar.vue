@@ -79,17 +79,9 @@
 
 export default {
   name: 'myNavbar',
-  props: {
-  },
-  data: function() {
-    return {
-      // 親と共通に
-      isActive: false,
-    }
-  },
+  props: ['isActive'],
   methods: {
     showMenu: function() {
-      this.isActive = !this.isActive;
       this.$emit('show-menu');
     }
   }
@@ -99,6 +91,8 @@ export default {
 
 <style lang="scss" scoped>
 
+$menu_time: .4s;
+@import "@/components/App/menu_trigger.scss";
 .mobile-menu-btn {
   padding-top: 8px;
   padding-right: 4%;
@@ -109,7 +103,6 @@ export default {
   padding-right: 10%;
 }
 
-$menu_time: .4s;
 .mobile-menu {
 	z-index: 1;
 	position: fixed;
