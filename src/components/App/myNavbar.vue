@@ -14,25 +14,19 @@
       <div class="navbar-start">
       </div>
       <div class="navbar-end">
-        <router-link to="/">
-          <a class="navbar-item">
-            Home
-          </a>
+        <router-link to="/" class="navbar-item">
+          Home
         </router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
 
-          <router-link to="/works">
-              <a class="navbar-link">
-                Works
-              </a>
+          <router-link to="/works" class="navbar-item">
+            Works
           </router-link>
 
           <div class="navbar-dropdown">
-            <router-link to="/works">
-                <a class="navbar-item">
-                  Top
-                </a>
+            <router-link to="/works" class="navbar-item">
+              Top
             </router-link>
             <hr class="navbar-divider">
             <a class="navbar-item">
@@ -47,16 +41,12 @@
           </div>
         </div>
 
-        <router-link to="/about">
-          <a class="navbar-item">
-            About
-          </a>
+        <router-link to="/about" class="navbar-item">
+          About
         </router-link>
 
-        <router-link to="/system">
-          <a class="navbar-item">
-            System
-          </a>
+        <router-link to="/system" class="navbar-item">
+          System
         </router-link>
 
 
@@ -69,6 +59,34 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
+
+        <div class="mobile-links">
+
+          <div class="mobile-link">
+            <router-link to="/" v-on:click.native="toggleMenu">
+              Home
+            </router-link>
+          </div>
+
+          <div class="mobile-link">
+            <router-link to="/works" v-on:click.native="toggleMenu">
+              Works
+            </router-link>
+          </div>
+
+          <div class="mobile-link">
+            <router-link to="/about" v-on:click.native="toggleMenu">
+              About
+            </router-link>
+          </div>
+
+          <div class="mobile-link">
+            <router-link to="/system" v-on:click.native="toggleMenu">
+              System
+            </router-link>
+          </div>
+
+        </div>
       </div>
 
 
@@ -115,14 +133,22 @@ export default {
 	margin: 0;
 	padding: 10px;
 	box-sizing: border-box;
-	background: rgba(0,0,0,.6);
+	background: rgba(253,253,253,.8);
 	transform: translateX(100%);
 	-webkit-transform: translateX(100%);
 	transition: transform $menu_time; 
+
+  &.active {
+    transform: none;
+    -webkit-transform: none;
+  }
+
+  .mobile-links {
+    margin-top: 24px;
+    .mobile-link {
+      margin-bottom: 24px;
+    }
+  }
 }
 
-.mobile-menu.active {
-	transform: none;
-	-webkit-transform: none;
-}
 </style>
