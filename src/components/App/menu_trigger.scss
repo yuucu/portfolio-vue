@@ -1,0 +1,104 @@
+.navbar-open.is-active {
+  span {
+    transition: all $menu_time/2; 
+    opacity: 0;
+    &:nth-of-type(1) {
+      transform: translateY( 5px );
+      -webkit-transform: translateY( 5px );
+    }
+    &:nth-of-type(2) { 
+      transition: all $menu_time/2 $menu_time/2; 
+      // transform: translateX( 60px );
+      transform: rotate( 360deg );
+      -webkit-transform: rotate( 360deg );
+    }
+    &:nth-of-type(3) { 
+      transform: translateY( -5px );
+      -webkit-transform: translateY( -5px );
+    }
+  }
+}
+
+.navbar-close {
+  margin-right: 4%;
+
+  span {
+    color: white;
+    opacity: 0;
+  }
+}
+
+.navbar-close.is-active {
+  span {
+    transition: opacity $menu_time;
+    &:nth-of-type(1) {
+      -webkit-animation: close_btn01 $menu_time*2 forwards;
+      animation: close_btn01 $menu_time*2 forwards;
+    }
+    &:nth-of-type(2) { 
+      opacity: 0;
+    }
+    &:nth-of-type(3) { 
+      -webkit-animation: close_btn03 $menu_time*2 forwards;
+      animation: close_btn03 $menu_time*2 forwards;
+    }
+
+
+    @-webkit-keyframes close_btn01 {
+      0% {
+        -webkit-transform: translateY(0) rotate(0);
+      }
+      50% {
+        -webkit-transform: translateY(5px) rotate(0);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateY(5px) rotate(45deg);
+        opacity: 1;
+      }
+    }
+    @keyframes close_btn01 {
+      0% {
+        transform: translateY(0) rotate(0);
+      }
+      50% {
+        transform: translateY(5px) rotate(0);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(5px) rotate(45deg);
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes close_btn03 {
+      0% {
+        -webkit-transform: translateY(0) rotate(0);
+      }
+      50% {
+        -webkit-transform: translateY(-5px) rotate(0);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateY(-5px) rotate(-45deg);
+        opacity: 1;
+      }
+    }
+    @keyframes close_btn03 {
+      0% {
+        transform: translateY(0) rotate(0);
+      }
+      50% {
+        transform: translateY(-5px) rotate(0);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(-5px) rotate(-45deg);
+        opacity: 1;
+      }
+    }
+
+
+  }
+
+
+}
