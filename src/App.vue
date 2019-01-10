@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="close-bg" v-bind:class="{ active: isActive }"></div>
 
-    <my-navbar v-bind:isActive="isActive" v-on:show-menu="showMenu"></my-navbar>
+    <close-bg v-bind:isActive="isActive" v-on:close-menu="toggleMenu"></close-bg>
+    <my-navbar v-bind:isActive="isActive" v-on:toggle-menu="toggleMenu"></my-navbar>
 
     <div class="container" v-bind:class="{ hidden: isActive }">
       <transition name="fade" mode="out-in">
@@ -18,20 +18,22 @@
 <script>
 import myFooter from '@/components/App/myFooter.vue'
 import myNavbar from '@/components/App/myNavbar.vue'
+import closeBg from '@/components/App/closeBg.vue'
 
 export default {
   name: 'app',
+  components: {
+    myFooter,
+    myNavbar,
+    closeBg,
+  },
   data: function() {
     return {
       isActive: false,
     }
   },
-  components: {
-    myFooter,
-    myNavbar,
-  },
   methods: {
-    showMenu: function() {
+    toggleMenu: function() {
       this.isActive = !this.isActive;
     }
   }
@@ -40,7 +42,7 @@ export default {
 
 <style lang="scss">
 
-// buefy
+// buefy ########################################################
 @import "~bulma/sass/utilities/_all";
 // Set your colors
 $primary: #00adb5;
@@ -68,6 +70,7 @@ $link-focus-border: $primary;
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 
+// ##############################################################
 
 
 #app {
@@ -77,7 +80,6 @@ $link-focus-border: $primary;
   text-align: center;
   color: #2c3e50;
 }
-
 
 .page-title {
   margin-top: 48px;
@@ -92,7 +94,7 @@ $link-focus-border: $primary;
   opacity: 0
 }
 
-$menu_time: .4s;
+@import "@/components/App/_app_variables.scss";
 // menu
 .container {
 	transition: transform $menu_time;
@@ -101,25 +103,5 @@ $menu_time: .4s;
 	transform: translateX(-320px);
 	-webkit-transform: translateX(-320px);
 }
-
-
-.close-bg {
-	z-index: 50;
-  position: fixed;
-	top: 0;
-	left: 0;
-  right: 0;
-  bottom: 0;
-	pointer-events: none;
-	transition: background-color $menu_time,
-              transform $menu_time;
-}
-
-.close-bg.active {
-  pointer-events: auto;
-	background-color: rgba(0,0,0,.3);
-	transform: translateX(-320px);
-	-webkit-transform: translateX(-320px);
-} 
 
 </style>

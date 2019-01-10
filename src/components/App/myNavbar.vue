@@ -2,7 +2,7 @@
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand mobile-menu-btn">
-      <a v-on:click="showMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-open" aria-label="menu" aria-expanded="false" data-target="target-menu">
+      <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-open" aria-label="menu" aria-expanded="false" data-target="target-menu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -64,12 +64,12 @@
       </div>
 
       <div class="mobile-menu" v-bind:class="{ active: isActive }">
-          <a v-on:click="showMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-close" aria-label="menu" aria-expanded="false" data-target="target-menu">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
+        <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-close" aria-label="menu" aria-expanded="false" data-target="target-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
 
 
   </nav>
@@ -81,8 +81,8 @@ export default {
   name: 'myNavbar',
   props: ['isActive'],
   methods: {
-    showMenu: function() {
-      this.$emit('show-menu');
+    toggleMenu: function() {
+      this.$emit('toggle-menu');
     }
   }
 }
@@ -91,8 +91,9 @@ export default {
 
 <style lang="scss" scoped>
 
-$menu_time: .4s;
+@import "@/components/App/_app_variables.scss";
 @import "@/components/App/menu_trigger.scss";
+
 .mobile-menu-btn {
   padding-top: 8px;
   padding-right: 4%;
@@ -119,6 +120,7 @@ $menu_time: .4s;
 	-webkit-transform: translateX(100%);
 	transition: transform $menu_time; 
 }
+
 .mobile-menu.active {
 	transform: none;
 	-webkit-transform: none;
