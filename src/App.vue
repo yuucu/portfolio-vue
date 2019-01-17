@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-  
+
     <close-bg v-bind:isActive="isActive" v-on:close-menu="toggleMenu"></close-bg>
     <my-navbar v-bind:isActive="isActive" v-on:toggle-menu="toggleMenu"></my-navbar>
-  
+
     <div class="container" v-bind:class="{ hidden: isActive }">
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
     </div>
-  
+
     <my-footer></my-footer>
-  
+
   </div>
 </template>
 
@@ -19,7 +19,7 @@
   import myFooter from '@/components/App/myFooter.vue'
   import myNavbar from '@/components/App/myNavbar.vue'
   import closeBg from '@/components/App/closeBg.vue'
-  
+
   export default {
     name: 'app',
     components: {
@@ -54,6 +54,9 @@
   $link: $primary;
   $link-invert: $primary-invert;
   $link-focus-border: $primary;
+
+  // navbar break point
+  $navbar-breakpoint: 768px;
   // Import Bulma and Buefy styles
   @import "~bulma";
   @import "~buefy/src/scss/buefy";
@@ -65,29 +68,29 @@
     text-align: center;
     color: #2c3e50;
   }
-  
+
   .page-title {
     margin-top: 48px;
     margin-bottom: 24px;
     font-size: 40px;
   }
-  
+
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity .6s
   }
-  
+
   .fade-enter,
   .fade-leave {
     opacity: 0
   }
-  
+
   @import "@/components/App/_app_variables.scss";
   // menu
   .container {
     transition: transform $menu_time;
   }
-  
+
   .container.hidden {
     transform: translateX(-320px);
     -webkit-transform: translateX(-320px);
