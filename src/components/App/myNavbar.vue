@@ -2,7 +2,7 @@
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand mobile-menu-btn">
-      <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-open" aria-label="menu" aria-expanded="false" data-target="target-menu">
+      <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': menuIsActive }" role="button" class="navbar-burger burger navbar-open" aria-label="menu" aria-expanded="false" data-target="target-menu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -14,13 +14,17 @@
       <div class="navbar-start">
       </div>
       <div class="navbar-end">
-        <router-link to="/" class="navbar-item">
+        <router-link to="/" class="navbar-item"
+          v-bind:class="{ 'is-active' :linkIsActive('home') }"
+          v-on:click.native="setActiveLink('home')">
           Home
         </router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
 
-          <router-link to="/works" class="navbar-item">
+          <router-link to="/works" class="navbar-item"
+            v-bind:class="{ 'is-active':linkIsActive('works') }"
+            v-on:click.native="setActiveLink('works')">
             Works
           </router-link>
 
@@ -41,11 +45,15 @@
           </div>
         </div>
 
-        <router-link to="/about" class="navbar-item">
+        <router-link to="/about" class="navbar-item"
+            v-bind:class="{ 'is-active': linkIsActive('about') }"
+            v-on:click.native="setActiveLink('about')">
           About
         </router-link>
 
-        <router-link to="/system" class="navbar-item">
+        <router-link to="/system" class="navbar-item"
+            v-bind:class="{ 'is-active': linkIsActive('system') }"
+            v-on:click.native="setActiveLink('system')">
           System
         </router-link>
 
@@ -53,8 +61,8 @@
         </div>
       </div>
 
-      <div class="mobile-menu" v-bind:class="{ active: isActive }">
-        <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-close" aria-label="menu" aria-expanded="false" data-target="target-menu">
+      <div class="mobile-menu" v-bind:class="{ active: menuIsActive }">
+        <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': menuIsActive }" role="button" class="navbar-burger burger navbar-close" aria-label="menu" aria-expanded="false" data-target="target-menu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -97,10 +105,21 @@
 
 export default {
   name: 'myNavbar',
-  props: ['isActive'],
+  props: ['menuIsActive'],
+  data: function() {
+    return {
+      active_link: 'home'
+    }
+  },
   methods: {
     toggleMenu: function() {
       this.$emit('toggle-menu');
+    },
+    linkIsActive: function( this_link ) {
+      return this.active_link === this_link
+    },
+    setActiveLink: function( link_item ) {
+      this.active_link = link_item
     }
   }
 }

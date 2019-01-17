@@ -1,10 +1,10 @@
 <template>
   <div id="app">
 
-    <close-bg v-bind:isActive="isActive" v-on:close-menu="toggleMenu"></close-bg>
-    <my-navbar v-bind:isActive="isActive" v-on:toggle-menu="toggleMenu"></my-navbar>
+    <close-bg v-bind:menuIsActive="menuIsActive" v-on:close-menu="toggleMenu"></close-bg>
+    <my-navbar v-bind:menuIsActive="menuIsActive" v-on:toggle-menu="toggleMenu"></my-navbar>
 
-    <div class="container" v-bind:class="{ hidden: isActive }">
+    <div class="container" v-bind:class="{ hidden: menuIsActive }">
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
@@ -29,12 +29,12 @@
     },
     data: function() {
       return {
-        isActive: false,
+        menuIsActive: false,
       }
     },
     methods: {
       toggleMenu: function() {
-        this.isActive = !this.isActive;
+        this.menuIsActive = !this.menuIsActive;
       }
     }
   }
