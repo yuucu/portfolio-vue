@@ -18,28 +18,9 @@
           Home
         </router-link>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-
-          <router-link to="/works" class="navbar-item">
-            Works
-          </router-link>
-
-          <div class="navbar-dropdown">
-            <router-link to="/works" class="navbar-item">
-              Top
-            </router-link>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Programming
-            </a>
-            <a class="navbar-item">
-              Games
-            </a>
-            <a class="navbar-item">
-              Songs
-            </a>
-          </div>
-        </div>
+        <router-link to="/works" class="navbar-item">
+          Works
+        </router-link>
 
         <router-link to="/about" class="navbar-item">
           About
@@ -48,7 +29,6 @@
         <router-link to="/system" class="navbar-item">
           System
         </router-link>
-
 
         </div>
       </div>
@@ -136,7 +116,7 @@ export default {
 	background: rgba(253,253,253,.8);
 	transform: translateX(100%);
 	-webkit-transform: translateX(100%);
-	transition: transform $menu_time; 
+	transition: transform $menu_time;
 
   &.active {
     transform: none;
