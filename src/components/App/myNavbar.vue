@@ -111,6 +111,7 @@ export default {
 
 @import "@/components/App/_app_variables.scss";
 @import "@/components/App/menu_trigger.scss";
+@import "@/components/App/menu_hover.scss";
 
 .mobile-menu-btn {
   padding-top: 8px;
@@ -136,7 +137,7 @@ export default {
 	background: rgba(253,253,253,.8);
 	transform: translateX(100%);
 	-webkit-transform: translateX(100%);
-	transition: transform $menu_time; 
+	transition: transform $menu_time;
 
   &.active {
     transform: none;

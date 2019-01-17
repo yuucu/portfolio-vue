@@ -1,0 +1,12 @@
+a.navbar-item {
+  transition: color .3s;
+  &:hover {
+    background-color: transparent;
+  }
+}
+.mobile-link {
+  a {
+      transition: color .3s; &:hover {
+    }
+  }
+}
