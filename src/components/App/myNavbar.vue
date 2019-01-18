@@ -51,25 +51,33 @@
         <div class="mobile-links">
 
           <div class="mobile-link">
-            <router-link to="/">
-              <span v-on:click="mobileLinkClick( 'home ')">Home</span>
+            <router-link to="/"
+            v-bind:class="{ 'is-active': linkIsActive( 'home' ) }"
+            v-on:click.native="mobileLinkClick('home')">
+              Home
             </router-link>
           </div>
 
           <div class="mobile-link">
-            <router-link to="/works">
+            <router-link to="/works"
+            v-bind:class="{ 'is-active': linkIsActive( 'works' ) }"
+            v-on:click.native="mobileLinkClick( 'works')">
               Works
             </router-link>
           </div>
 
           <div class="mobile-link">
-            <router-link to="/about" v-on:click.native="mobileLinkClick( 'about' )">
+            <router-link to="/about"
+            v-bind:class="{ 'is-active': linkIsActive( 'about' ) }"
+            v-on:click.native="mobileLinkClick('about')">
               About
             </router-link>
           </div>
 
           <div class="mobile-link">
-            <router-link to="/system" v-on:click.native="mobileLinkClick( 'system' )">
+            <router-link to="/system"
+            v-bind:class="{ 'is-active': linkIsActive( 'system' ) }"
+            v-on:click.native="mobileLinkClick('system')">
               System
             </router-link>
           </div>
