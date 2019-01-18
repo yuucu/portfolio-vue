@@ -20,30 +20,11 @@
           Home
         </router-link>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-
-          <router-link to="/works" class="navbar-item"
-            v-bind:class="{ 'is-active':linkIsActive('works') }"
-            v-on:click.native="setActiveLink('works')">
-            Works
-          </router-link>
-
-          <div class="navbar-dropdown">
-            <router-link to="/works" class="navbar-item">
-              Top
-            </router-link>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Programming
-            </a>
-            <a class="navbar-item">
-              Games
-            </a>
-            <a class="navbar-item">
-              Songs
-            </a>
-          </div>
-        </div>
+        <router-link to="/works" class="navbar-item"
+          v-bind:class="{ 'is-active':linkIsActive('works') }"
+          v-on:click.native="setActiveLink('works')">
+          Works
+        </router-link>
 
         <router-link to="/about" class="navbar-item"
             v-bind:class="{ 'is-active': linkIsActive('about') }"
@@ -56,7 +37,6 @@
             v-on:click.native="setActiveLink('system')">
           System
         </router-link>
-
 
         </div>
       </div>
