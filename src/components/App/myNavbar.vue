@@ -2,7 +2,7 @@
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand mobile-menu-btn">
-      <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-open" aria-label="menu" aria-expanded="false" data-target="target-menu">
+      <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': menuIsActive }" role="button" class="navbar-burger burger navbar-open" aria-label="menu" aria-expanded="false" data-target="target-menu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -14,13 +14,17 @@
       <div class="navbar-start">
       </div>
       <div class="navbar-end">
-        <router-link to="/" class="navbar-item">
+        <router-link to="/" class="navbar-item"
+          v-bind:class="{ 'is-active' :linkIsActive('home') }"
+          v-on:click.native="setActiveLink('home')">
           Home
         </router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
 
-          <router-link to="/works" class="navbar-item">
+          <router-link to="/works" class="navbar-item"
+            v-bind:class="{ 'is-active':linkIsActive('works') }"
+            v-on:click.native="setActiveLink('works')">
             Works
           </router-link>
 
@@ -41,11 +45,15 @@
           </div>
         </div>
 
-        <router-link to="/about" class="navbar-item">
+        <router-link to="/about" class="navbar-item"
+            v-bind:class="{ 'is-active': linkIsActive('about') }"
+            v-on:click.native="setActiveLink('about')">
           About
         </router-link>
 
-        <router-link to="/system" class="navbar-item">
+        <router-link to="/system" class="navbar-item"
+            v-bind:class="{ 'is-active': linkIsActive('system') }"
+            v-on:click.native="setActiveLink('system')">
           System
         </router-link>
 
@@ -53,8 +61,8 @@
         </div>
       </div>
 
-      <div class="mobile-menu" v-bind:class="{ active: isActive }">
-        <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': isActive }" role="button" class="navbar-burger burger navbar-close" aria-label="menu" aria-expanded="false" data-target="target-menu">
+      <div class="mobile-menu" v-bind:class="{ active: menuIsActive }">
+        <a v-on:click="toggleMenu" v-bind:class="{ 'is-active': menuIsActive }" role="button" class="navbar-burger burger navbar-close" aria-label="menu" aria-expanded="false" data-target="target-menu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -63,25 +71,25 @@
         <div class="mobile-links">
 
           <div class="mobile-link">
-            <router-link to="/" v-on:click.native="toggleMenu">
+            <router-link to="/" v-on:click.native="mobileLinkClick( 'home' )">
               Home
             </router-link>
           </div>
 
           <div class="mobile-link">
-            <router-link to="/works" v-on:click.native="toggleMenu">
+            <router-link to="/works" v-on:click.native="mobileLinkClick( 'works' )">
               Works
             </router-link>
           </div>
 
           <div class="mobile-link">
-            <router-link to="/about" v-on:click.native="toggleMenu">
+            <router-link to="/about" v-on:click.native="mobileLinkClick( 'about' )">
               About
             </router-link>
           </div>
 
           <div class="mobile-link">
-            <router-link to="/system" v-on:click.native="toggleMenu">
+            <router-link to="/system" v-on:click.native="mobileLinkClick( 'system' )">
               System
             </router-link>
           </div>
@@ -97,10 +105,25 @@
 
 export default {
   name: 'myNavbar',
-  props: ['isActive'],
+  props: ['menuIsActive'],
+  data: function() {
+    return {
+      active_link: 'home'
+    }
+  },
   methods: {
     toggleMenu: function() {
       this.$emit('toggle-menu');
+    },
+    mobileLinkClick: function( link_item ) {
+      this.active_link = link_item
+      this.$emit('toggle-menu');
+    },
+    linkIsActive: function( this_link ) {
+      return this.active_link === this_link
+    },
+    setActiveLink: function( link_item ) {
+      this.active_link = link_item
     }
   }
 }
@@ -111,6 +134,7 @@ export default {
 
 @import "@/components/App/_app_variables.scss";
 @import "@/components/App/menu_trigger.scss";
+@import "@/components/App/menu_hover.scss";
 
 .mobile-menu-btn {
   padding-top: 8px;
@@ -136,7 +160,7 @@ export default {
 	background: rgba(253,253,253,.8);
 	transform: translateX(100%);
 	-webkit-transform: translateX(100%);
-	transition: transform $menu_time; 
+	transition: transform $menu_time;
 
   &.active {
     transform: none;

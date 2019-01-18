@@ -1,11 +1,11 @@
 <template>
-    <div class="close-bg" v-on:click="closeMenu" v-bind:class="{ active: isActive }"></div>
+    <div class="close-bg" v-on:click="closeMenu" v-bind:class="{ active: menuIsActive }"></div>
 </template>
 
 <script>
 export default {
   name: 'closeBg',
-  props: ['isActive'],
+  props: ['menuIsActive'],
   methods: {
     closeMenu: function() {
       this.$emit('close-menu');
@@ -33,6 +33,6 @@ export default {
 	background-color: rgba(0,0,0,.3);
 	transform: translateX(-320px);
 	-webkit-transform: translateX(-320px);
-} 
+}
 
 </style>

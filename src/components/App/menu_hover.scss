@@ -1,0 +1,46 @@
+@mixin under_line( $top: 2em, $line_width: 34% ) {
+  transition: color .3s;
+  position: relative;
+  &::before, &::after {
+    position: absolute;
+    top: $top;
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    background-color: #a8a8a8;
+    transition: .3s;
+  }
+  &::before {
+    left: 40%;
+  }
+  &::after {
+    right: 40%;
+  }
+
+  &:hover {
+    background-color: transparent;
+    color: #4099ff;
+    &:before, &:after {
+      width: 34%;
+    }
+  }
+
+  &.is-active {
+    color: #00abd5;
+    &:before, &:after {
+      width: 34%;
+    }
+  }
+}
+
+a.navbar-item {
+  @include under_line( 2em, 34% );
+}
+
+.mobile-link {
+  a {
+    color: black;
+    @include under_line( 1.6em, 34% );
+  }
+}
