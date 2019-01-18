@@ -1,18 +1,21 @@
 <template lang="pug">
   .home
+    <terminal/>
     p サイト更新中...
     p 前サイト
     a( href="https://satokibi.github.io/2/" ) https://satokibi.github.io/2/
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import terminal from '@/components/Home/home_terminal.vue';
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    terminal,
   }
 }
 </script>
+
+<style lang="scss" scoped>
+</style>
