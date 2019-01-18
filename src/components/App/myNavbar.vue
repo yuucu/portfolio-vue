@@ -57,7 +57,7 @@
           </div>
 
           <div class="mobile-link">
-            <router-link to="/works" v-on:click.native="mobileLinkClick( 'works' )">
+            <router-link to="/works">
               Works
             </router-link>
           </div>
