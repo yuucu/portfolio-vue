@@ -63,7 +63,7 @@
           </div>
 
           <div class="mobile-link">
-            <router-link to="/about" v-on:click.native="mobileLinkClick( 'about' )">
+            <router-link to="/about" v-on:click.native="toggleMenu">
               About
             </router-link>
           </div>
