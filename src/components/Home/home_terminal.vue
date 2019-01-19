@@ -6,31 +6,24 @@
       li( v-if="login_flag" ) [~]#&nbsp;
         input( autofocus maxlength="50" id="terminal-input" v-model="current_line" v-on:keydown.enter="command")
       li( v-else )
-        div( v-if="login_state_username" )
-          | login:&nbsp;
-          input( autofocus maxlength="50" id="terminal-input" v-model="username" class="input_username"
-          v-on:keydown.enter="login")
-        div( v-else )
-          | password:&nbsp;
-          input( autofocus type="password" maxlength="32"
-          id="terminal-input" v-model="password" class="input_password"
-          v-on:keydown.enter="login")
+        <login_input v-on:loginCorrect="loginCorrect" v-on:push="history_push"></login_input>
 </template>
 
 <script>
+import login_input from '@/components/Home/home_terminal_login.vue'
 
 export default {
-  name: 'home',
+  name: 'terminal',
+  components: {
+    login_input
+  },
   data: function() {
     return {
       current_line: "",
-      username: "",
-      password: "",
       history: [],
       index: 0,
       interval: 500,
       login_flag: false,
-      login_state_username: true,
       terminal_init_messages: [
         'Initializing ...',
         'site version 0.11 2019 Saturday 19 January 08:35 a.m. JST',
@@ -46,30 +39,9 @@ export default {
     }
   },
   created: function() {
-    // setInterval(this.terminalInit , this.interval)
     this.terminalInit();
   },
   methods: {
-    login: function() {
-      if( this.login_state_username ) {
-        this.login_state_username = false;
-        this.history_push( 'login: ' + this.username );
-      } else {
-        this.login_state_username = true;
-        this.history_push( 'password: ' + '*'.repeat( this.password.length ) );
-
-        if( this.username === 'a' && this.password === 'a') {
-          this.history_push( 'Login correct' );
-          this.login_flag = true;
-        } else {
-          this.history_push( 'Login incorrect' );
-          this.history_push( '　' );
-          this.username = '';
-          this.password = '';
-        }
-
-      }
-    },
     command: function() {
       this.history_push( '[~]# ' + this.current_line );
       this.current_line = '';
@@ -90,6 +62,9 @@ export default {
           this.history_push( this.login_messages[i] );
         }
       }
+    },
+    loginCorrect: function() {
+      this.login_flag = true;
     },
     history_push: function( str ) {
       this.history.push( str );
@@ -145,12 +120,6 @@ export default {
       outline: 0;
     }
 
-    &.input_username  {
-      width: 340px;
-    }
-    &.input_password  {
-      width: 308px;
-    }
   }
 }
 </style>
