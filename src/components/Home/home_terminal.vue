@@ -44,6 +44,11 @@ export default {
   methods: {
     command: function() {
       this.history_push( '[~]# ' + this.current_line );
+
+      // clear command
+      if( this.current_line === 'clear' ) {
+        this.history = [];
+      }
       this.current_line = '';
     },
     terminalFocus: function() {
