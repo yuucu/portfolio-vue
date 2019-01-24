@@ -5,13 +5,11 @@ export default {
   components: {
     login_input
   },
+
   data: function () {
     return {
-      current_line: "",
-      history: [],
       index: 0,
       interval: 500,
-      login_flag: false,
       terminal_init_messages: [
         'Initializing ...',
         'site version 0.11 2019 Saturday 19 January 08:35 a.m. JST',
@@ -26,61 +24,81 @@ export default {
       ]
     }
   },
+
   created: function () {
-    this.terminalInit();
+    if(this.initState === false) {
+      this.terminalInit();
+    }
   },
+
+  computed: {
+    initState: function () {
+      return this.$store.getters.getInitFlag;
+    },
+    loginState: function () {
+      return this.$store.getters.getLoginFlag;
+    },
+    currentLine: {
+      get() {
+        return this.$store.getters.getCurrentLine;
+      },
+      set(str) {
+        this.$store.commit('updateCurrentLine', str)
+      }
+    },
+    history: function () {
+      return this.$store.getters.getHistory;
+    },
+  },
+
   methods: {
     command: function () {
-      this.history_push('[~]# ' + this.current_line);
+      var current_line = this.$store.getters.getCurrentLine
+      this.$store.commit('pushHistory', '[~]# ' + current_line);
 
-      var args = this.current_line.split(/\s+/);
-      if (this.current_line === 'clear') {
-        this.history = [];
+      var args = current_line.split(/\s+/);
+      if (current_line === 'clear') {
+        this.$store.commit('clearHistory');
       }
-      else if (this.current_line === 'ls') {
-        this.history_push('q1.txt');
+      else if (current_line === 'ls') {
+        this.$store.commit('pushHistory', 'q1.txt');
       }
       else if (args[0] === 'cat') {
-        if(args[1] == 'q1.txt') {
-          this.history_push('hello');
+        if (args[1] == 'q1.txt') {
+          this.$store.commit('pushHistory', 'hello');
         } else {
-          this.history_push(args[0] + ': ' + args[1] + ': No such file or directory');
+          this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': No such file or directory');
         }
       }
-      else if (this.current_line === 'exit') {
-        this.history_push('logout');
-        this.login_flag = false;
+      else if (current_line === 'exit') {
+        this.$store.commit('pushHistory', 'logout');
+        this.$store.commit('logout');
       }
-      else if (this.current_line !== '') {
-        this.history_push(this.current_line + ': command not found');
+      else if (current_line !== '') {
+        this.$store.commit('pushHistory', current_line + ': command not found');
       }
-      this.current_line = '';
+      this.$store.commit('updateCurrentLine', '')
     },
+
     terminalFocus: function () {
       document.getElementById('terminal-input').focus();
     },
+
     terminalInit: function () {
-      this.history_push(this.terminal_init_messages[this.index]);
-      this.current_line = '';
+      this.$store.commit('pushHistory', this.terminal_init_messages[this.index]);
+      this.$store.commit('updateCurrentLine', '')
       this.interval = Math.random() * 100;
       this.index++;
       if (this.index < this.terminal_init_messages.length) {
         setTimeout(this.terminalInit, this.interval)
       } else {
-        this.history = [];
+        this.$store.commit('clearHistory');
         for (var i = 0; i < this.login_messages.length; i++) {
-          this.history_push(this.login_messages[i]);
+          this.$store.commit('pushHistory', this.login_messages[i]);
         }
+        this.$store.commit('finishInit')
       }
     },
-    loginCorrect: function () {
-      this.login_flag = true;
-    },
-    history_push: function (str) {
-      this.history.push(str);
-      if (this.history.length > 14) {
-        this.history = this.history.slice(-14);
-      }
-    }
   }
+
 }
