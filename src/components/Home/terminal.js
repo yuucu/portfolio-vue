@@ -29,6 +29,11 @@ export default {
     if(this.initState === false) {
       this.terminalInit();
     }
+    window.addEventListener('keydown', this.terminalFocus);
+  },
+
+  beforeDestroy: function() {
+    window.removeEventListener('keydown', this.terminalFocus);
   },
 
   computed: {
