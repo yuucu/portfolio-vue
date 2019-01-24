@@ -46,9 +46,11 @@ export default new Vuex.Store({
     },
     setPassForm(state) {
       state.user_form_flag = false;
+      document.getElementById('terminal-input').focus();
     },
     setUserForm(state) {
       state.user_form_flag = true;
+      document.getElementById('terminal-input').focus();
     },
   },
 
