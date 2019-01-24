@@ -2,11 +2,12 @@
   .login_input
     div( v-if="login_state_username" )
       | login:&nbsp;
-      input( autofocus maxlength="50" id="terminal-input" v-model="username" class="input_username"
+      input( autofocus maxlength="50" autocomplete="off" id="terminal-input" v-model="username" class="input_username"
       v-on:keydown.enter="inputUsername")
     div( v-else )
       | password:&nbsp;
       input( autofocus type="password" maxlength="32"
+      autocomplete="off"
       id="terminal-input" v-model="password" class="input_password"
       v-on:keydown.enter="login")
 </template>
@@ -31,7 +32,7 @@ export default {
       this.login_state_username = true;
       this.$emit( 'push', 'password: ' + '*'.repeat( this.password.length ) );
 
-      if( this.username === 'a' && this.password === 'a') {
+      if( this.username === 'root' && this.password === 'helloworld') {
         this.$emit( 'push', 'Login correct' );
         this.$emit( 'loginCorrect' );
         this.username = '';
