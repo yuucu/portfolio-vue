@@ -1,14 +1,9 @@
 <template>
   <div id="app">
-
     <close-bg v-bind:menuIsActive="menuIsActive" v-on:close-menu="toggleMenu"></close-bg>
     <my-navbar v-bind:menuIsActive="menuIsActive" v-on:toggle-menu="toggleMenu"></my-navbar>
 
     <div class="container" v-bind:class="{ hidden: menuIsActive }">
-      <!--
-      <transition name="fade" mode="out-in">
-      <transition name="fade" mode="">
-        -->
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
@@ -109,5 +104,10 @@
   .container.hidden {
     transform: translateX(-320px);
     -webkit-transform: translateX(-320px);
+  }
+
+  #invisible {
+    display: none;
+    opacity: 0;
   }
 </style>
