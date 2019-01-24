@@ -5,13 +5,13 @@ export default {
   components: {
     login_input
   },
+
   data: function () {
     return {
       current_line: "",
       history: [],
       index: 0,
       interval: 500,
-      login_flag: false,
       terminal_init_messages: [
         'Initializing ...',
         'site version 0.11 2019 Saturday 19 January 08:35 a.m. JST',
@@ -26,9 +26,17 @@ export default {
       ]
     }
   },
+
   created: function () {
     this.terminalInit();
   },
+
+  computed: {
+    loginState: function() {
+      return this.$store.getters.getLoginFlag;
+    }
+  },
+
   methods: {
     command: function () {
       this.history_push('[~]# ' + this.current_line);
@@ -72,9 +80,6 @@ export default {
           this.history_push(this.login_messages[i]);
         }
       }
-    },
-    loginCorrect: function () {
-      this.login_flag = true;
     },
     history_push: function (str) {
       this.history.push(str);

@@ -34,7 +34,7 @@ export default {
 
       if( this.username === 'root' && this.password === 'helloworld') {
         this.$emit( 'push', 'Login correct' );
-        this.$emit( 'loginCorrect' );
+        this.$store.commit('loginCorrect');
         this.username = '';
         this.password = '';
       } else {
