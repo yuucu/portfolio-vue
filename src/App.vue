@@ -5,6 +5,10 @@
     <my-navbar v-bind:menuIsActive="menuIsActive" v-on:toggle-menu="toggleMenu"></my-navbar>
 
     <div class="container" v-bind:class="{ hidden: menuIsActive }">
+      <!--
+      <transition name="fade" mode="out-in">
+      <transition name="fade" mode="">
+        -->
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
@@ -77,12 +81,23 @@
 
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity .6s
+    transition: all .3s;
   }
 
-  .fade-enter,
+  .fade-enter {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  .fade-enter-to {
+    opacity: 1;
+  }
+
   .fade-leave {
-    opacity: 0
+    opacity: 1;
+  }
+  .fade-leave-to {
+    opacity: 0;
+    transform: translateX(16px);
   }
 
   @import "@/components/App/_app_variables.scss";
