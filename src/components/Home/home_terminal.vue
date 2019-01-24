@@ -4,9 +4,9 @@
       li( v-for=" (text, index) in history " )
         p {{ text }}
       li( v-if="loginState" ) [~]#&nbsp;
-        input( autofocus maxlength="50" autocomplete="off" id="terminal-input" v-model="current_line" v-on:keydown.enter="command")
+        input( autofocus maxlength="50" autocomplete="off" id="terminal-input" v-model="currentLine" v-on:keydown.enter="command")
       li( v-else )
-        <login_input v-on:loginCorrect="loginCorrect" v-on:push="history_push"></login_input>
+        <login_input></login_input>
 </template>
 
 <script src="./terminal.js"></script>
