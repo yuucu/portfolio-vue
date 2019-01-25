@@ -22,20 +22,13 @@
   height: 272px;
   margin: 0 auto;
   margin-top: 104px;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
   background-color: black;
 
   text-align: left;
   font-size: 12px;
   color: red;
 
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
   ul {
     li {
       color: white;

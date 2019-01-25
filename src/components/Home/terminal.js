@@ -66,14 +66,22 @@ export default {
         this.$store.commit('clearHistory');
       }
       else if (current_line === 'ls') {
-        this.$store.commit('pushHistory', 'q1.txt');
+        this.$store.commit('pushHistory', 'show.sh hidden.sh hint.txt');
       }
       else if (args[0] === 'cat') {
-        if (args[1] == 'q1.txt') {
-          this.$store.commit('pushHistory', 'hello');
+        if (args[1] == 'hint.txt') {
+          this.$store.commit('pushHistory', './[filename]');
         } else {
           this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': No such file or directory');
         }
+      }
+      else if (args[0] === './show.sh') {
+        this.$store.commit('pushHistory', '...');
+        this.$store.commit('showWinners');
+      }
+      else if (args[0] === './hidden.sh') {
+        this.$store.commit('pushHistory', '...');
+        this.$store.commit('hiddenWinners');
       }
       else if (current_line === 'exit') {
         this.$store.commit('pushHistory', 'logout');
