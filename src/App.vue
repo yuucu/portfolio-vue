@@ -106,8 +106,4 @@
     -webkit-transform: translateX(-320px);
   }
 
-  #invisible {
-    display: none;
-    opacity: 0;
-  }
 </style>
