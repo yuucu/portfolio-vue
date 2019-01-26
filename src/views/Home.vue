@@ -3,9 +3,6 @@
     <terminal/>
     <winners/>
 
-    p サイト更新中...
-    p 前サイト
-    a( href="https://satokibi.github.io/2/" ) https://satokibi.github.io/2/
 </template>
 
 <script>

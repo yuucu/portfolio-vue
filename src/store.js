@@ -14,7 +14,8 @@ export default new Vuex.Store({
     password: "",
     user_form_flag: true,
 
-    winners_show_flag: false
+    winners_show_flag: false,
+    form_send_flag: false
   },
 
   mutations: {
@@ -61,8 +62,11 @@ export default new Vuex.Store({
     hiddenWinners(state) {
       state.winners_show_flag = false;
     },
-  },
 
+    formSend(state) {
+      state.form_send_flag = true;
+    },
+  },
   getters: {
     getInitFlag: function(state) {
       return state.init_flag;
@@ -89,5 +93,8 @@ export default new Vuex.Store({
     getWinnersShowFlag: function(state) {
       return state.winners_show_flag;
     },
+    getFormSendFlag: function(state) {
+      return state.form_send_flag;
+    }
   }
 })

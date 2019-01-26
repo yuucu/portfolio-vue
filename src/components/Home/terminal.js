@@ -21,7 +21,8 @@ export default {
         'site ver 0.11',
         'Welcome',
         '　',
-      ]
+      ],
+      winners: []
     }
   },
 
@@ -29,7 +30,9 @@ export default {
     if(this.initState === false) {
       this.terminalInit();
     }
-    window.addEventListener('keydown', this.terminalFocus);
+    if( this.$store.getters.getWinnersShowFlag == false ) {
+      window.addEventListener('keydown', this.terminalFocus);
+    }
   },
 
   beforeDestroy: function() {
@@ -78,10 +81,12 @@ export default {
       else if (args[0] === './show.sh') {
         this.$store.commit('pushHistory', '...');
         this.$store.commit('showWinners');
+        window.removeEventListener('keydown', this.terminalFocus);
       }
       else if (args[0] === './hidden.sh') {
         this.$store.commit('pushHistory', '...');
         this.$store.commit('hiddenWinners');
+        window.addEventListener('keydown', this.terminalFocus);
       }
       else if (current_line === 'exit') {
         this.$store.commit('pushHistory', 'logout');
