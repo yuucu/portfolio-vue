@@ -21,7 +21,8 @@ export default {
         'site ver 0.11',
         'Welcome',
         '　',
-      ]
+      ],
+      winners: []
     }
   },
 
@@ -29,7 +30,9 @@ export default {
     if(this.initState === false) {
       this.terminalInit();
     }
-    window.addEventListener('keydown', this.terminalFocus);
+    if( this.$store.getters.getWinnersShowFlag == false ) {
+      window.addEventListener('keydown', this.terminalFocus);
+    }
   },
 
   beforeDestroy: function() {
@@ -66,14 +69,28 @@ export default {
         this.$store.commit('clearHistory');
       }
       else if (current_line === 'ls') {
-        this.$store.commit('pushHistory', 'q1.txt');
+        this.$store.commit('pushHistory', 'show.sh hidden.sh hint.txt');
       }
       else if (args[0] === 'cat') {
-        if (args[1] == 'q1.txt') {
-          this.$store.commit('pushHistory', 'hello');
+        if (args[1] == 'hint.txt') {
+          this.$store.commit('pushHistory', './[filename]');
+        } else if (args[1] == 'show.sh') {
+          this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': Permission denied');
+        } else if (args[1] == 'hidden.sh') {
+          this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': Permission denied');
         } else {
           this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': No such file or directory');
         }
+      }
+      else if (args[0] === './show.sh') {
+        this.$store.commit('pushHistory', '...');
+        this.$store.commit('showWinners');
+        window.removeEventListener('keydown', this.terminalFocus);
+      }
+      else if (args[0] === './hidden.sh') {
+        this.$store.commit('pushHistory', '...');
+        this.$store.commit('hiddenWinners');
+        window.addEventListener('keydown', this.terminalFocus);
       }
       else if (current_line === 'exit') {
         this.$store.commit('pushHistory', 'logout');
