@@ -40,9 +40,6 @@
                 td {{ winners[winners.length - i].name }}
                 td {{ winners[winners.length - i].comment }}
 
-                //
-                  [ ] - 送信した後、formをけす( cookieとかで一応保存? )
-                  [ ] - paging
 </template>
 
 
@@ -59,7 +56,7 @@ export default {
       name: "",
       comment: "",
       test_flag: true,
-      url: 'http://localhost:3000/winners'
+      url: 'https://nazonazo-lv1.herokuapp.com/winners',
     }
   },
   computed: {
@@ -72,7 +69,6 @@ export default {
   },
   created: function () {
     axios
-      //.get('https://nazonazo-lv1.herokuapp.com/winners')
       .get(this.url)
       .then(response => {
         if( response.data.status === 200 ) {

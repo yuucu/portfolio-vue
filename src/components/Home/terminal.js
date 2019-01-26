@@ -74,6 +74,10 @@ export default {
       else if (args[0] === 'cat') {
         if (args[1] == 'hint.txt') {
           this.$store.commit('pushHistory', './[filename]');
+        } else if (args[1] == 'show.sh') {
+          this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': Permission denied');
+        } else if (args[1] == 'hidden.sh') {
+          this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': Permission denied');
         } else {
           this.$store.commit('pushHistory', args[0] + ': ' + args[1] + ': No such file or directory');
         }
