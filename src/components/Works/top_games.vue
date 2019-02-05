@@ -24,10 +24,10 @@
             a( href="https://unityroom.com/users/satokibi" target="_blank" )
               img( src="//pbs.twimg.com/profile_images/945518810299109376/FsoFEOeG.jpg" )
         .media-content
-          p.title.is-4 
+          p.title.is-4
             | <span class="underline">Games</span>
             | <br><a href="https://unityroom.com/users/satokibi" target="_blank">UnityRoom</a>
-      .content.has-text-left 
+      .content.has-text-left
         p.
           <span class="tag is-dark">Unity</span>
           <span class="tag is-light">C#</span>
