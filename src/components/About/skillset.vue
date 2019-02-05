@@ -2,7 +2,7 @@
   .card.has-text-left.has-background-light
     header.card-header.has-background-dark
       p.card-header-title.has-text-light SkillSet
-    .card-content 
+    .card-content
       div.has-text-centered.skill-content
         div.skill-title.is-inline-block
           .
@@ -39,6 +39,7 @@
         div.skills
           p.is-inline-block <span><img v-bind:src="get_img('jquery.png')"></span> jQuery
           p.is-inline-block <span><img v-bind:src="get_img('vue.png')"></span> Vue.js
+          p.is-inline-block <span><img v-bind:src="get_img('nuxt.png')"></span> Nuxt.js
 
       div.has-text-centered.skill-content
         div.skill-title.is-inline-block
@@ -56,6 +57,15 @@
           p.is-inline Java
         div.skills
           p.is-inline-block <span><img v-bind:src="get_img('play.png')"></span> PlayFramework
+
+      div.has-text-centered.skill-content
+        div.skill-title.is-inline-block
+          .
+            <img v-bind:src="get_img('ruby.png')">
+          p.is-inline Ruby
+        div.skills
+          p.is-inline-block <span><img v-bind:src="get_img('rails.png')"></span> Ruby on Rails
+
 
       div.has-text-centered.skill-content.skill-content-last
         div.skill-title.is-inline-block
@@ -77,7 +87,7 @@
 export default {
   methods: {
     get_img: function( img ) {
-      return require('../../assets/' + img); 
+      return require('../../assets/' + img);
     }
   }
 }
