@@ -5,6 +5,8 @@
         h2.page-title Works
       .column.is-10-mobile.is-offset-1-mobile.is-10-tablet.is-offset-1-tablet
         .work
+          items
+        .work
           top-prog
         .work
           top-games
@@ -17,6 +19,7 @@
 import topSound from '@/components/Works/top_sound.vue';
 import topGames from '@/components/Works/top_games.vue';
 import topProg from '@/components/Works/top_prog.vue';
+import items from '@/components/Works/items.vue';
 
 export default {
   name: 'works',
@@ -24,6 +27,7 @@ export default {
     topSound,
     topGames,
     topProg,
+    items,
   },
 }
 </script>
