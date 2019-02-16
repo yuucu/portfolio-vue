@@ -15,7 +15,8 @@
             span
               a( href="https://getbootstrap.com/" target="_blank" )
                 img( src="@/assets/bootstrap.png" )
-          p.title-text miq char
+          a( href="https://satokibi.github.io/miq_char/" target="_blank" )
+            p.title-text.has-text-grey-dark miq char
           p.description アイドルWEARのみくてんさんのみく文字フォントを画像化できるようにしたサイト。
           div.link
             a( href="https://github.com/satokibi/miq_char" target="_blank" )

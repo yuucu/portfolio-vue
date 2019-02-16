@@ -12,7 +12,8 @@
               i( class="fab fa-css3" )
             span( class="icon" style="color: #ead44d;" )
               i( class="fab fa-js-square" )
-          p.title-text satokibi.github.io
+          a( href="https://satokibi.github.io/2/" target="_blank" )
+            p.title-text.has-text-grey-dark satokibi.github.io
           p.description 初代ポートフォリオサイト。html, cssフルスクラッチ(T_T)!
           div.link
             a( href="https://github.com/satokibi/2" target="_blank" )

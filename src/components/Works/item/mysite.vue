@@ -15,7 +15,8 @@
             span
               a( href="https://rubyonrails.org/" target="_blank" )
                 img( src="@/assets/rails.png" )
-          p.title-text ポートフォリオ(このサイト)
+          a( href="https://satokibi.netlify.com/" target="_blank" )
+            p.title-text.has-text-grey-dark ポートフォリオ(このサイト)
           p.description Vue.jsで初めて作ったサイト。お気に入りは、モバイル用メニューボタンのアニメーション。
           div.link
             a( href="https://github.com/satokibi/github.io-src" target="_blank" )

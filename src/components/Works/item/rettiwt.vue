@@ -15,7 +15,8 @@
             span
               a( href="https://getbootstrap.com/" target="_blank" )
                 img( src="@/assets/bootstrap.png" )
-          p.title-text rettiwt
+          a( href="https://satokibi.github.io/rettiwt/" target="_blank" )
+            p.title-text.has-text-grey-dark rettiwt
           p.description いろいろ文字変換できるサイト。leet文字変換や、文字を回転したり、変な記号をたくさんつけたり、、、
           div.link
             a( href="https://github.com/satokibi/rettiwt" target="_blank" )

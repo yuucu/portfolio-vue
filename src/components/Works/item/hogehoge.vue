@@ -19,7 +19,8 @@
             span
               a( href="https://www.chartjs.org/" target="_blank" )
                 img( src="@/assets/chartjs.png" )
-          p.title-text hogehoge.io
+          a( href="https://hogehoge.netlify.com/" target="_blank" )
+            p.title-text.has-text-grey-dark hogehoge.io
           p.description Nuxt.jsで開発したgithub APIを用いたサービス。検索キーワードがgithubソースコード内でどれくらい使用されているかがわかる！
           div.link
             a( href="https://github.com/satokibi/hogehoge.io" target="_blank" )
