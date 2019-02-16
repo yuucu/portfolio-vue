@@ -1,5 +1,4 @@
 <template lang="pug">
-- var link = 'https://soundcloud.com/sugar_gt/irony-techno'
   .column.is-4-tablet.is-3-widescreen
     .card
       .card-image
@@ -10,20 +9,16 @@
             span
               a( href="https://www.image-line.com/flstudio/" target="_blank" )
                 img( src="@/assets/flstudio.png" )
-          a( v-bind:href="song.link" target="_blank" )
+          a( v-bind:href="song.url" target="_blank" )
             p.title-text.has-text-grey-dark {{ song.title }}
           p.description {{ song.description }}
           div.link
-            a( v-bind:href="song.link" target="_blank" )
+            a( v-bind:href="song.url" target="_blank" )
               i( class="fas fa-external-link-alt" )
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-    }
-  },
   props: ['song']
 }
 </script>
