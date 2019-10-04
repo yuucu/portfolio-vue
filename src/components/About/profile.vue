@@ -13,7 +13,7 @@
           p.prof-title name
           p.bar | 
         .level-right
-          p.prof-content satokibi
+          p.prof-content yuucu
 
       .level.prof-line.is-mobile
         .level-left

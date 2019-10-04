@@ -4,13 +4,13 @@
       .media
         .media-left
           figure.image.is-64x64
-            a( href="https://github.com/satokibi" target="_blank" )
+            a( href="https://github.com/yuucu" target="_blank" )
               .
                 <img src="https://avatars0.githubusercontent.com/u/39527561?s=460&amp;v=4">
         .media-content
           p.title.is-4
             |<span class="underline">Web</span>
-            |<br><a href="https://github.com/satokibi" target="_blank">GitHub</a>
+            |<br><a href="https://github.com/yuucu" target="_blank">GitHub</a>
       .content.has-text-left
         p.
           <span class="tag is-light">Html</span>

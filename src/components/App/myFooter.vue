@@ -2,7 +2,7 @@
   <div>
     <footer class="footer">
       <div class="content has-text-centered">
-        <small>&copy; 2018 satokibi</small>
+        <small>&copy; 2018 yuucu</small>
       </div>
     </footer>
   </div>

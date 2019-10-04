@@ -90,43 +90,43 @@ export default {
         'title': 'ToDo管理bot',
         'description': 'Line Messaging API + Railsで開発したToDo管理bot。是非、友達登録して使ってみてください...!',
         'img': require('@/assets/todo.png'),
-        'url': 'https://satokibi.github.io/line-todo-app/',
-        'github_url': 'https://github.com/satokibi/line-todo-app',
+        'url': 'https://yuucu.github.io/line-todo-app/',
+        'github_url': 'https://github.com/yuucu/line-todo-app',
       },
       hogehoge: {
         'title': 'hogehoge.io',
         'description': 'Nuxt.jsで開発したgithub APIを用いたサービス。検索キーワードがgithubソースコード内でどれくらい使用されているかがわかる！',
         'img': require('@/assets/hogehoge.png'),
         'url': 'https://hogehoge.netlify.com/',
-        'github_url': 'https://github.com/satokibi/hogehoge.io'
+        'github_url': 'https://github.com/yuucu/hogehoge.io'
       },
       mysite: {
         'title': 'ポートフォリオ(このサイト)',
         'description': 'Vue.jsで初めて作ったサイト。お気に入りは、モバイル用メニューボタンのアニメーション。',
         'img': require('@/assets/mysite.png'),
-        'url': 'https://satokibi.netlify.com/',
-        'github_url': 'https://github.com/satokibi/github.io-src'
+        'url': 'https://yuucu.netlify.com/',
+        'github_url': 'https://github.com/yuucu/github.io-src'
       },
       mysite2: {
-        'title': 'satokibi.github.io',
+        'title': 'yuucu.github.io',
         'description': '初代ポートフォリオサイト。html, cssフルスクラッチ(T_T)!',
         'img': require('@/assets/mysite_2.png'),
-        'url': 'https://satokibi.github.io/2/',
-        'github_url': 'https://github.com/satokibi/2/'
+        'url': 'https://yuucu.github.io/2/',
+        'github_url': 'https://github.com/yuucu/2/'
       },
       miqchar: {
         'title': 'miq char',
         'description': 'アイドルWEARのみくてんさんのみく文字フォントを画像化できるようにしたサイト。',
         'img': require('@/assets/miqchar.png'),
-        'url': 'https://satokibi.github.io/miq_char/',
-        'github_url': 'https://github.com/satokibi/miq_char'
+        'url': 'https://yuucu.github.io/miq_char/',
+        'github_url': 'https://github.com/yuucu/miq_char'
       },
       rettiwt: {
         'title': 'rettiwt',
         'description': 'いろいろ文字変換できるサイト。leet文字変換や、文字を回転したり、変な記号をたくさんつけたり、、、',
         'img': require('@/assets/rettiwt.png'),
-        'url': 'https://satokibi.github.io/rettiwt/',
-        'github_url': 'https://github.com/satokibi/rettiwt'
+        'url': 'https://yuucu.github.io/rettiwt/',
+        'github_url': 'https://github.com/yuucu/rettiwt'
       },
 
       games: [
@@ -135,28 +135,28 @@ export default {
           'description': 'シューティングゲーム。この時期4年生で研究が忙しくなり手付かずに、、',
           'img': require('@/assets/shooter.gif'),
           'url': 'https://unityroom.com/games/voxel_shooter',
-          'github_url': 'https://github.com/satokibi/VoxelShooter'
+          'github_url': 'https://github.com/yuucu/VoxelShooter'
         },
         {
           'title': 'VoxelRun',
           'description': 'Unity(C#)で開発したシンプルなランゲーム。キャラやアイテムはMagica voxelやBlenderで作成。オリジナルのキャラなのですごく愛着が湧いています！',
           'img': require('@/assets/voxelrun.gif'),
           'url': 'https://unityroom.com/games/voxelrun',
-          'github_url': 'https://github.com/satokibi/VoxelRun'
+          'github_url': 'https://github.com/yuucu/VoxelRun'
         },
         {
           'title': 'balls',
           'description': 'Unity(C#)で開発したパズルゲーム。スマホでみたあのゲーム...',
           'img': require('@/assets/balls.gif'),
           'url': 'https://unityroom.com/games/balls',
-          'github_url': 'https://github.com/satokibi/balls'
+          'github_url': 'https://github.com/yuucu/balls'
         },
         {
           'title': '放置ダンジョン',
           'description': 'Unity(C#)で開発した2D放置ダンジョンゲーム。アイテムや装備などのメニュー画面の実装はすごく時間がかかったけど楽しかった思い出。敵キャラ１対１体のHP調整や難易度調整がすごく大変で、未だ未完成...',
           'img': require('@/assets/houti.gif'),
           'url': 'https://unityroom.com/games/houti_dungeon',
-          'github_url': 'https://github.com/satokibi/houti_dungeon'
+          'github_url': 'https://github.com/yuucu/houti_dungeon'
         },
       ],
 

@@ -59,10 +59,10 @@ export default {
   },
   methods: {
     open_github: function() {
-      window.open( 'https://github.com/satokibi', '_blank' );
+      window.open( 'https://github.com/yuucu', '_blank' );
     },
     open_qiita: function() {
-      window.open( 'https://qiita.com/satokibi', '_blank' );
+      window.open( 'https://qiita.com/yuucu', '_blank' );
     },
   }
 }
