@@ -8,7 +8,6 @@
       span
         a( href="https://rubyonrails.org/" target="_blank" )
           img( src="@/assets/rails.png" )
-
     web( v-bind:web="hogehoge", v-if="category_web" )
       span
         a( href="https://jp.vuejs.org/index.html" target="_blank" )
@@ -105,7 +104,7 @@ export default {
         'description': 'Vue.jsで初めて作ったサイト。お気に入りは、モバイル用メニューボタンのアニメーション。',
         'img': require('@/assets/mysite.png'),
         'url': 'https://yuucu.netlify.com/',
-        'github_url': 'https://github.com/yuucu/github.io-src'
+        'github_url': 'https://github.com/yuucu/portfolio-vue'
       },
       mysite2: {
         'title': 'yuucu.github.io',
