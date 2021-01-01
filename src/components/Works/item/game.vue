@@ -8,7 +8,7 @@
           div.tags
             span
               a( href="https://unity3d.com/jp" target="_blank" )
-                img( src="@/assets/unity.png" )
+                img( src="@/assets/unity.svg" )
           a( v-bind:href="game.url" target="_blank" )
             p.title-text.has-text-grey-dark {{ game.title }}
           p.description {{ game.description }}

@@ -1,20 +1,29 @@
 <template lang="pug">
   .columns.is-multiline#items
 
+    web( v-bind:web="blog", v-if="category_web" )
+      span
+        a( href="https://developers.line.biz/ja/" target="_blank" )
+          img( src="@/assets/line.png" )
+      span
+        a( href="https://rubyonrails.org/" target="_blank" )
+          img( src="@/assets/rails.svg" )
+
     web( v-bind:web="todo", v-if="category_web" )
       span
         a( href="https://developers.line.biz/ja/" target="_blank" )
           img( src="@/assets/line.png" )
       span
         a( href="https://rubyonrails.org/" target="_blank" )
-          img( src="@/assets/rails.png" )
+          img( src="@/assets/rails.svg" )
+
     web( v-bind:web="hogehoge", v-if="category_web" )
       span
         a( href="https://jp.vuejs.org/index.html" target="_blank" )
-          img( src="@/assets/vue.png" )
+          img( src="@/assets/vue.svg" )
       span
         a( href="https://ja.nuxtjs.org/" target="_blank" )
-          img( src="@/assets/nuxt.png" )
+          img( src="@/assets/nuxt.svg" )
       span
         a( href="https://vuetifyjs.com/ja/" target="_blank" )
           img( src="@/assets/vuetify.png" )
@@ -25,13 +34,13 @@
     web( v-bind:web="mysite", v-if="category_web" )
       span
         a( href="https://jp.vuejs.org/index.html" target="_blank" )
-          img( src="@/assets/vue.png" )
+          img( src="@/assets/vue.svg" )
       span
         a( href="https://bulma.io/" target="_blank" )
           img( src="@/assets/bulma.png" )
       span
         a( href="https://rubyonrails.org/" target="_blank" )
-          img( src="@/assets/rails.png" )
+          img( src="@/assets/rails.svg" )
 
     web( v-bind:web="mysite2", v-if="category_web" )
       span( class="icon" style="color: #de4b26;" )
@@ -84,7 +93,13 @@ export default {
       category_web: true,
       category_game: true,
       category_music: true,
-
+      blog: {
+        'title': 'ブログ',
+        'description': 'Line Messaging API + Railsで開発したToDo管理bot。是非、友達登録して使ってみてください...!',
+        'img': require('@/assets/todo.png'),
+        'url': 'https://yuucu.github.io/line-todo-app/',
+        'github_url': 'https://github.com/yuucu/line-todo-app',
+      },
       todo: {
         'title': 'ToDo管理bot',
         'description': 'Line Messaging API + Railsで開発したToDo管理bot。是非、友達登録して使ってみてください...!',
@@ -94,14 +109,14 @@ export default {
       },
       hogehoge: {
         'title': 'hogehoge.io',
-        'description': 'Nuxt.jsで開発したgithub APIを用いたサービス。検索キーワードがgithubソースコード内でどれくらい使用されているかがわかる！',
+        'description': 'Nuxt.jsで開発したgithub APIを用いたサービス。検索キーワードがgithub全体でどれくらい使用されているかがわかります',
         'img': require('@/assets/hogehoge.png'),
         'url': 'https://hogehoge.netlify.com/',
         'github_url': 'https://github.com/yuucu/hogehoge.io'
       },
       mysite: {
         'title': 'ポートフォリオ(このサイト)',
-        'description': 'Vue.jsで初めて作ったサイト。お気に入りは、モバイル用メニューボタンのアニメーション。',
+        'description': 'Vue.jsで初めて作ったサイト。お気に入りは、モバイル用メニューボタンのアニメーションです。',
         'img': require('@/assets/mysite.png'),
         'url': 'https://yuucu.netlify.com/',
         'github_url': 'https://github.com/yuucu/portfolio-vue'
