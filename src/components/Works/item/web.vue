@@ -11,10 +11,12 @@
             p.title-text.has-text-grey-dark {{ web.title }}
           p.description {{ web.description }}
           div.link
-            a( v-bind:href="web.github_url" target="_blank" )
-              i( class="fab fa-github" )
-            a( v-bind:href="web.url" target="_blank" )
-              i( class="fas fa-external-link-alt" )
+            p.is-inline-block.right {{ web.date }}
+            p.is-inline-block.left
+              a( v-bind:href="web.github_url" target="_blank" )
+                i( class="fab fa-github" )
+              a( v-bind:href="web.url" target="_blank" )
+                i( class="fas fa-external-link-alt" )
 </template>
 
 <script>

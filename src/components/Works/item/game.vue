@@ -13,10 +13,12 @@
             p.title-text.has-text-grey-dark {{ game.title }}
           p.description {{ game.description }}
           div.link
-            a( v-bind:href="game.github_url" target="_blank" )
-              i( class="fab fa-github" )
-            a( v-bind:href="game.url" target="_blank" )
-              i( class="fas fa-external-link-alt" )
+            p.is-inline-block.right {{ game.date }}
+            p.is-inline-block.left
+              a( v-bind:href="game.github_url" target="_blank" )
+                i( class="fab fa-github" )
+              a( v-bind:href="game.url" target="_blank" )
+                i( class="fas fa-external-link-alt" )
 </template>
 
 <script>
