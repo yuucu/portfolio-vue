@@ -29,7 +29,7 @@
               </span>
 
       transition( name="slide-fade" )
-        p.mail-td( v-if="mail_show" ) yuucu00@gmail.com
+        p.mail( v-if="mail_show" ) yuucu00@gmail.com
 
 
       .me-btn.me-github( v-on:click="open_github" )
@@ -147,7 +147,9 @@ export default {
 
 }
 
-.mail-td {
+.mail {
+  max-width: 240px;
+  margin: auto;
   margin-top: 8px;
   margin-bottom: 24px;
 }
