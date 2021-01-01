@@ -32,12 +32,6 @@
           About
         </router-link>
 
-        <router-link to="/system" class="navbar-item"
-            v-bind:class="{ 'is-active': linkIsActive('system') }"
-            v-on:click.native="setActiveLink('system')">
-          System
-        </router-link>
-
         </div>
       </div>
 

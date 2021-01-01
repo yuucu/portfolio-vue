@@ -24,7 +24,7 @@
           p.prof-title age
           p.bar | 
         .level-right
-          p.prof-content 23
+          p.prof-content 25
 
       .level.prof-line.is-mobile
         .level-left
@@ -57,7 +57,7 @@
           p.prof-title locate
           p.bar | 
         .level-right
-          p.prof-content Fukuoka.JP
+          p.prof-content Tokyo.JP
 </template>
 
 

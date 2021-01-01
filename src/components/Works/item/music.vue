@@ -13,8 +13,10 @@
             p.title-text.has-text-grey-dark {{ song.title }}
           p.description {{ song.description }}
           div.link
-            a( v-bind:href="song.url" target="_blank" )
-              i( class="fas fa-external-link-alt" )
+            p.is-inline-block.right {{ song.date }}
+            p.is-inline-block.left
+              a( v-bind:href="song.url" target="_blank" )
+                i( class="fas fa-external-link-alt" )
 </template>
 
 <script>
